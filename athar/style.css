@@ -28,7 +28,7 @@ body {
 }
 
 .main-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -50,8 +50,8 @@ body {
 .bg-leaf {
   position: absolute;
   top: 40px;
-  width: 220px;
-  opacity: 0.45;
+  width: 200px;
+  opacity: 0.5;
 }
 
 .bg-leaf.right {
@@ -136,7 +136,7 @@ body {
   transform: rotate(180deg);
 }
 
-/* Dropdown Menu */
+/* Dropdown Floating Menu */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -153,12 +153,14 @@ body {
   z-index: 200;
 }
 
+/* Show Dropdown on Hover */
 .nav-dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(6px);
 }
 
+/* Inner Dropdown Items */
 .dropdown-item {
   display: block;
   padding: 10px 20px;
@@ -200,80 +202,207 @@ body {
 }
 
 /* ==========================================================================
-   4. FEATURED VIDEO SECTION
-   ========================================================================== */
-.featured-video-section {
-  margin: 30px auto 40px;
-  display: flex;
-  justify-content: center;
-}
-
-.featured-video-wrapper {
-  width: 100%;
-  max-width: 820px;
-  background-color: #000;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(56, 35, 14, 0.12);
-}
-
-.hero-video-player {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  display: block;
-  outline: none;
-  border-radius: 24px;
-}
-
-/* ==========================================================================
-   5. HERO TITLE SECTION
+   4. HERO TITLE SECTION
    ========================================================================== */
 .hero-section {
   text-align: center;
-  margin: 0 auto 70px;
-  max-width: 750px;
+  margin: 40px 0 50px;
 }
 
 .hero-title {
-  font-size: 3.4rem;
+  font-size: 3.2rem;
   font-weight: 700;
-  color: var(--text-color);
 }
 
 .hero-divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 8px 0 12px;
+  gap: 12px;
+  font-size: 1.1rem;
+  margin: 6px 0 12px;
 }
 
-.hero-divider-img {
-  width: 28px;
-  height: auto;
-  opacity: 0.85;
+.hero-divider::before,
+.hero-divider::after {
+  content: "";
+  width: 65px;
+  height: 2px;
+}
+
+.hero-divider::before {
+  background: linear-gradient(to left, transparent, var(--btn-bg));
+}
+
+.hero-divider::after {
+  background: linear-gradient(to left, var(--btn-bg), transparent);
 }
 
 .hero-subtitle {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.hero-description {
-  font-size: 1rem;
-  opacity: 0.85;
-  line-height: 1.7;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 /* ==========================================================================
-   6. FOOTER STYLES
+   5. FLEXBOX CARDS LAYOUT
+   ========================================================================== */
+.cards-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 70px;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex: 1 1 500px;
+  max-width: 570px;
+  min-height: 280px;
+  box-shadow: 0 4px 20px rgba(56, 35, 14, 0.04);
+}
+
+.feature-card-wide {
+  flex-basis: 750px;
+  max-width: 820px;
+}
+
+/* Text side (Right side in RTL) */
+.card-content {
+  flex: 1.1;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(56, 35, 14, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--btn-bg);
+  margin-bottom: 14px;
+}
+
+.card-icon-img {
+  width: 22px;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 22px;
+  max-width: 270px;
+}
+
+.card-btn {
+  display: inline-block;
+  background-color: var(--btn-bg);
+  color: var(--light-text);
+  text-decoration: none;
+  padding: 8px 38px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Image side (Left side in RTL) */
+.card-media {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* Soft inner edge fade into beige card background */
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 35%);
+  mask-image: linear-gradient(to left, transparent 0%, black 35%);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .feature-card,
+  .feature-card-wide {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    flex-direction: column-reverse;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .feature-card {
+    flex-direction: column-reverse;
+  }
+
+  .card-media {
+    height: 200px;
+    min-width: 100%;
+  }
+
+  .card-img {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 35%);
+  }
+}
+
+/* ==========================================================================
+   FOOTER STYLES
    ========================================================================== */
 .site-footer {
   background-color: var(--card-bg);
   color: var(--text-color);
   padding: 60px 0;
-  margin-top: 60px;
+  margin-top: 80px;
   border-top: 1px solid rgba(56, 35, 14, 0.08);
 }
 
@@ -287,6 +416,7 @@ body {
   gap: 40px;
 }
 
+/* Brand Column */
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -318,6 +448,7 @@ body {
   opacity: 0.85;
 }
 
+/* Footer Columns */
 .footer-column {
   display: flex;
   flex-direction: column;
@@ -337,6 +468,7 @@ body {
   opacity: 0.6;
 }
 
+/* Quick Links List */
 .footer-links {
   list-style: none;
   padding: 0;
@@ -360,6 +492,7 @@ body {
   font-weight: 700;
 }
 
+/* Social Media List */
 .footer-social {
   list-style: none;
   padding: 0;
@@ -395,29 +528,8 @@ body {
   font-size: 0.9rem;
 }
 
-/* ==========================================================================
-   7. RESPONSIVE BREAKPOINTS
-   ========================================================================== */
+/* Responsive Alignment */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column-reverse;
-    gap: 15px;
-    padding: 15px;
-  }
-
-  .nav-links {
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .hero-title {
-    font-size: 2.4rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.15rem;
-  }
-
   .footer-container {
     flex-direction: column;
     gap: 35px;
