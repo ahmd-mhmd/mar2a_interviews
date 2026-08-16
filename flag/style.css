@@ -1,0 +1,615 @@
+:root {
+  --text-color: rgb(56, 35, 14);
+  --light-text: rgb(238, 237, 233);
+  --mid-light-text: rgb(226, 202, 163);
+  --btn-bg: rgb(108, 71, 42);
+  --bg-color: rgb(242, 229, 220);
+  --card-bg: rgb(236, 220, 205);
+  --font-main: "IBM Plex Sans Arabic", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   3. NAVIGATION BAR & DROPDOWN
+   ========================================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
+  padding: 25px 50px;
+  z-index: 100;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1.05rem;
+  position: relative;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-color);
+}
+
+.nav-link.active::before {
+  content: "◆";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.45rem;
+  color: var(--text-color);
+}
+
+/* Dropdown Container */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Floating Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--card-bg);
+  border-radius: 14px;
+  padding: 10px 0;
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(56, 35, 14, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 200;
+}
+
+/* Show Dropdown on Hover */
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(6px);
+}
+
+/* Inner Dropdown Items */
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition:
+    background-color 0.2s ease,
+    font-weight 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(56, 35, 14, 0.08);
+  font-weight: 700;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.logo-text span {
+  font-size: 0.85rem;
+  display: block;
+}
+
+.logo-img {
+  width: 30px;
+  height: auto;
+}
+
+/* Background Decorations */
+.bg-decorations-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-decoration.right {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 180px;
+}
+
+.bg-decoration.left {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 180px;
+  transform: scaleX(-1);
+}
+
+.bg-decoration img {
+  width: 100%;
+  opacity: 0.6;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin: 40px 0 50px;
+}
+
+.page-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.title-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin: 5px 0 10px;
+}
+
+.title-heart::before,
+.title-heart::after {
+  content: "";
+  width: 65px;
+  height: 2px;
+}
+
+.title-heart::before {
+  background: linear-gradient(to left, transparent, var(--btn-bg));
+}
+
+.title-heart::after {
+  background: linear-gradient(to left, var(--btn-bg), transparent);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* Common Card Style */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 24px;
+  padding: 30px;
+}
+
+/* Page Grid Layout */
+.flag-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.main-flag-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Flag Card */
+.flag-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.flag-container {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.flag-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+/* Flexbox for Dynamic Words on Top of the Flag */
+.flag-words-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  max-width: 85%;
+  padding: 20px;
+}
+
+.flag-word-pill {
+  background-color: rgba(255, 255, 255, 0.88);
+  color: var(--text-color);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.flag-word-pill:hover {
+  transform: scale(1.1);
+  background-color: rgb(255, 255, 255);
+}
+
+.flag-hint {
+  font-size: 0.85rem;
+  margin-top: 15px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Form Card */
+.form-card {
+  padding: 25px 30px;
+  text-align: center;
+}
+
+.form-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.word-input-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  right: 15px;
+  width: 18px;
+  opacity: 0.6;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 42px 12px 15px;
+  border: 1px solid rgba(56, 35, 14, 0.2);
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-color);
+  outline: none;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--btn-bg);
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--btn-bg);
+  color: var(--light-text);
+  border: none;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: rgb(85, 55, 30);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-subtext {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* Side Column */
+.side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Recent Submissions */
+.recent-card {
+  padding: 25px 20px;
+}
+
+.recent-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.recent-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  min-height: 120px;
+}
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(56, 35, 14, 0.08);
+}
+
+.recent-word {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recent-word i {
+  font-size: 0.8rem;
+  color: rgba(56, 35, 14, 0.4);
+}
+
+.recent-time {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.btn-outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--btn-bg);
+  color: var(--btn-bg);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+.btn-outline:hover {
+  background-color: var(--btn-bg);
+  color: var(--light-text);
+}
+
+/* Counter Card */
+.counter-card {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.counter-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.counter-number {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.counter-heart {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: var(--btn-bg);
+}
+
+/* Most Used Words Section */
+.most-used-section {
+  text-align: center;
+  margin: 50px 0 40px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.divider-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 5px 0 10px;
+}
+
+.divider-heart::before,
+.divider-heart::after {
+  content: "";
+  width: 95px;
+  height: 2px;
+}
+
+.divider-heart::before {
+  background: linear-gradient(to right, transparent, rgba(56, 35, 14, 0.2) 60%);
+}
+
+.divider-heart::after {
+  background: linear-gradient(to right, rgba(56, 35, 14, 0.2) 60%, transparent);
+}
+
+.divider-heart span {
+  font-size: 1.2rem;
+  color: var(--mid-light-text);
+}
+
+.pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  min-height: 50px;
+}
+
+.popular-pill {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.popular-pill img {
+  width: 14px;
+  height: auto;
+}
+
+.empty-msg {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  padding: 10px 0;
+}
+
+/* Footer Quote */
+.flag-footer-quote {
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.footer-heart {
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .flag-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+}

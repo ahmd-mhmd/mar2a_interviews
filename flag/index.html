@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>العلم اللبناني - حكاية صمود</title>
+
+    <!-- IBM Plex Sans Arabic Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Supabase JS Library -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <!-- Background Decorations -->
+    <div class="bg-decorations-container">
+      <div class="bg-decoration right">
+        <img src="bg_leafs.png" alt="Leaves Decoration" />
+      </div>
+      <div class="bg-decoration left">
+        <img src="bg_leafs.png" alt="Leaves Decoration" />
+      </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">الصفحة الرئيسية</a>
+
+        <!-- Dropdown Menu -->
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle">
+            قصص <i class="fa-solid fa-angle-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="../morabiya/index.html" class="dropdown-item"
+              >المرأة المربية</a
+            >
+            <a href="../aamila/index.html" class="dropdown-item"
+              >المرأة العاملة</a
+            >
+            <a href="../mokawima/index.html" class="dropdown-item"
+              >المرأة المقاومة</a
+            >
+          </div>
+        </div>
+
+        <a href="../flag/index.html" class="nav-link active">العلم اللبناني</a>
+      </nav>
+      <div class="logo">
+        <div class="logo-text">
+          <h1>هي</h1>
+          <span>حكاية صمود</span>
+        </div>
+        <img src="leafs_logo.png" alt="Logo Leaf" class="logo-img" />
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h2 class="page-title">العلم اللبناني</h2>
+        <div class="title-heart">♥</div>
+        <p class="subtitle">
+          كل كلمة تزرع أملًا... وكل صفة تروي حكاية المرأة اللبنانية.
+        </p>
+      </section>
+
+      <!-- Main Layout Grid -->
+      <div class="flag-page-grid">
+        <!-- Left Column: Flag Display & Input Form -->
+        <div class="main-flag-column">
+          <!-- Flag Card -->
+          <div class="card flag-card">
+            <div class="flag-container">
+              <img
+                src="lebanese_flag.jpg"
+                alt="Lebanese Flag"
+                class="flag-bg-img"
+              />
+
+              <!-- Dynamic words container from DB -->
+              <div class="flag-words-wrapper" id="flagWordsContainer">
+                <!-- Populated dynamically via JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Submission Form Box -->
+          <div class="card form-card">
+            <h3 class="form-title">اكتبي صفة تعبر عن المرأة اللبنانية</h3>
+            <form id="addWordForm" class="word-input-group">
+              <div class="input-wrapper">
+                <img src="leafs_logo.png" alt="icon" class="input-icon" />
+                <input
+                  type="text"
+                  id="wordInput"
+                  placeholder="اكتبي صفتك هنا..."
+                  required
+                  maxlength="30"
+                  autocomplete="off"
+                />
+              </div>
+              <button type="submit" id="submitBtn" class="btn btn-submit">
+                <span>أضيفي كلمتي</span>
+                <img
+                  src="leafs_logo.png"
+                  alt="icon"
+                  style="width: 16px; filter: brightness(10)"
+                />
+              </button>
+            </form>
+            <p class="form-subtext">
+              كل كلمة تضيفينها تصبح جزءًا من علم المرأة اللبنانية.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Recent Activity & Counter -->
+        <aside class="side-column">
+          <!-- Recent Submissions -->
+          <div class="card recent-card">
+            <div class="recent-header">
+              <img src="leafs_logo.png" alt="Leaf" style="width: 20px" />
+              <h3>آخر المشاركات</h3>
+            </div>
+            <ul class="recent-list" id="recentList">
+              <!-- Populated dynamically via JS -->
+            </ul>
+            <button class="btn btn-outline" id="viewAllBtn">
+              عرض كل المشاركات
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Total Word Counter -->
+          <div class="card counter-card">
+            <div class="counter-icon">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
+            <div class="counter-number" id="totalCount">--</div>
+            <p class="counter-label">كلمة كتبت حتى الآن</p>
+            <div class="counter-heart">♥</div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Most Used Words Section -->
+      <section class="most-used-section">
+        <h3 class="section-title">أكثر الكلمات استخدامًا</h3>
+        <div class="divider-heart">
+          <span>♥</span>
+        </div>
+        <div class="pills-container" id="mostUsedContainer">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- Page Footer Quote -->
+      <footer class="flag-footer-quote">
+        <p>معاً نكتب حكاية امرأة... ومعا نرفع العلم.</p>
+        <div class="footer-heart">♥</div>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

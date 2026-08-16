@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المقابلات - هي حكاية صمود</title>
+
+    <!-- IBM Plex Sans Arabic Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Leaf Overlay -->
+    <div class="bg-decorations">
+      <img
+        src="../bg_leafs.png"
+        alt="Background Leaf Right"
+        class="bg-leaf right"
+      />
+      <img
+        src="../bg_leafs.png"
+        alt="Background Leaf Left"
+        class="bg-leaf left"
+      />
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <nav class="nav-links">
+        <a href="../../../index.html" class="nav-link">الصفحة الرئيسية</a>
+
+        <!-- Dropdown Menu -->
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle active">
+            قصص <i class="fa-solid fa-angle-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="../../../morabiya/index.html" class="dropdown-item"
+              >المرأة المربية</a
+            >
+            <a href="../../../aamila/index.html" class="dropdown-item"
+              >المرأة العاملة</a
+            >
+            <a href="../../../mokawima/index.html" class="dropdown-item"
+              >المرأة المقاومة</a
+            >
+          </div>
+        </div>
+
+        <a href="../../../flag/index.html" class="nav-link">العلم اللبناني</a>
+      </nav>
+      <div class="logo">
+        <div class="logo-text">
+          <h1>هي</h1>
+          <span>حكاية صمود</span>
+        </div>
+        <img src="../../leafs_logo.png" alt="Logo Leaf" class="logo-img" />
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <h2 class="hero-title">المرأة اللبنانية</h2>
+        <div class="hero-divider">
+          <img
+            src="../../leafs_logo.png"
+            alt="Leaf Divider"
+            class="hero-divider-img"
+          />
+        </div>
+        <p class="hero-subtitle">قصة وطن ... ترويها نساؤه</p>
+        <p class="hero-description">
+          من العمل والعطاء، إلى التربية والاحتواء، إلى الصمود والمقاومة... نساء
+          لبنان يكتبن الحكاية، ببصمتهن لا تُنسى.
+        </p>
+        <a href="#interviews-list" class="hero-action-btn">
+          <i class="fa-solid fa-arrow-down"></i> اكتشف الحكايات
+        </a>
+      </section>
+
+      <!-- Vertical Video Column Container -->
+      <section id="interviews-list" class="interviews-section">
+        <div class="videos-column-container">
+          <!-- Video 1 -->
+          <div class="video-box">
+            <video controls poster="poster1.jpeg" class="video-player">
+              <source
+                src="https://interviewVideos.b-cdn.net/interviews/fatima%20media%20mp4.mp4"
+                type="video/mp4"
+              />
+              متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="video-box">
+            <video controls poster="poster2.jpeg" class="video-player">
+              <source
+                src="https://interviewVideos.b-cdn.net/interviews/ghufran%20media%20mp4.mp4"
+                type="video/mp4"
+              />
+              متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="video-box">
+            <video controls poster="poster3.jpeg" class="video-player">
+              <source
+                src="https://interviewVideos.b-cdn.net/interviews/petra%20e3lemiye.mp4"
+                type="video/mp4"
+              />
+              متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="video-box">
+            <video controls poster="poster3.jpeg" class="video-player">
+              <source
+                src="https://interviewVideos.b-cdn.net/interviews/rayan%20mohtawa.mp4"
+                type="video/mp4"
+              />
+              متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
