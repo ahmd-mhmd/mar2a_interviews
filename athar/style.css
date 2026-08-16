@@ -186,9 +186,9 @@ body {
 }
 
 .logo-text h1 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .logo-text span {
@@ -197,7 +197,7 @@ body {
 }
 
 .logo-img {
-  width: 30px;
+  width: 40px;
   height: auto;
 }
 
@@ -396,13 +396,13 @@ body {
 }
 
 /* ==========================================================================
-   FOOTER STYLES
+   6. FOOTER STYLES
    ========================================================================== */
 .site-footer {
   background-color: var(--card-bg);
   color: var(--text-color);
   padding: 60px 0;
-  margin-top: 80px;
+  margin-top: 60px;
   border-top: 1px solid rgba(56, 35, 14, 0.08);
 }
 
@@ -416,7 +416,6 @@ body {
   gap: 40px;
 }
 
-/* Brand Column */
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -448,7 +447,6 @@ body {
   opacity: 0.85;
 }
 
-/* Footer Columns */
 .footer-column {
   display: flex;
   flex-direction: column;
@@ -468,7 +466,6 @@ body {
   opacity: 0.6;
 }
 
-/* Quick Links List */
 .footer-links {
   list-style: none;
   padding: 0;
@@ -492,7 +489,6 @@ body {
   font-weight: 700;
 }
 
-/* Social Media List */
 .footer-social {
   list-style: none;
   padding: 0;
@@ -528,8 +524,29 @@ body {
   font-size: 0.9rem;
 }
 
-/* Responsive Alignment */
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column-reverse;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+
   .footer-container {
     flex-direction: column;
     gap: 35px;

@@ -184,9 +184,9 @@ body {
 }
 
 .logo-text h1 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .logo-text span {
@@ -195,7 +195,7 @@ body {
 }
 
 .logo-img {
-  width: 30px;
+  width: 40px;
   height: auto;
 }
 
